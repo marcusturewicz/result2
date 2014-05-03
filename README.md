@@ -26,6 +26,8 @@ So what do you use when `out` isn't allowed and exceptions are slow?  This is th
 
 ## Nuget?
 Of course!
-```PM> Install-Package Result```
+```
+PM> Install-Package Result
+```
 
 That's all there is to it.  Happy (now faster, more success/failure aware) async coding!
