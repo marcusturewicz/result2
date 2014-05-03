@@ -24,7 +24,7 @@ So how do you associate success or failure with `Task`s?  A `Task<X>` can't retu
 So what do you use when `out` isn't allowed and exceptions are slow?  This is the hole `Result` fills.  As a result, methods returning `IResult` should **never** throw an exception.  You can prefix any `IResult` method names with `Try` to emphasize this.
 
 
-## Nuget?
+## NuGet?
 Of course!
 ```
 PM> Install-Package Result
