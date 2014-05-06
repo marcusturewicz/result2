@@ -46,5 +46,37 @@
 			Assert.IsFalse(result.Ok);
 			Assert.AreEqual("inner 1", result.Reason);
 		}
+
+		[TestMethod]
+		public void From_should_be_ok_when_no_exception()
+		{
+			var result = Result.From(() => { });
+			Assert.IsTrue(result.Ok);
+		}
+
+		[TestMethod]
+		public void From_should_not_be_ok_when_exception_is_thrown()
+		{
+			var result = Result.From(() => { throw new Exception("err"); });
+			Assert.IsFalse(result.Ok);
+			Assert.AreEqual("err", result.Reason);
+		}
+
+		[TestMethod]
+		public void From_T_should_be_ok_when_no_exception()
+		{
+			var val = new { };
+			var result = Result.From(() => val);
+			Assert.IsTrue(result.Ok);
+			Assert.IsTrue(Object.ReferenceEquals(val, result.Value));
+		}
+
+		[TestMethod]
+		public void From_T_should_not_be_ok_when_exception_is_thrown()
+		{
+			var result = Result.From<object>(() => { throw new Exception("err"); });
+			Assert.IsFalse(result.Ok);
+			Assert.AreEqual("err", result.Reason);
+		}
 	}
 }

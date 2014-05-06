@@ -89,6 +89,31 @@
 		{
 			return results;
 		}
+
+		public static IResult From(Action operation)
+		{
+			try
+			{
+				operation();
+				return Result.Success();
+			}
+			catch (Exception ex)
+			{
+				return Result.Failure(ex);
+			}
+		}
+
+		public static IResult<T> From<T>(Func<T> operation)
+		{
+			try
+			{
+				return Result.Success(operation());
+			}
+			catch (Exception ex)
+			{
+				return Result.Failure<T>(ex);
+			}
+		}
 	}
 
 	/// <summary>
