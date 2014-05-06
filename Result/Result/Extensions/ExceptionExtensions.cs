@@ -1,6 +1,5 @@
-﻿namespace Jane
+﻿namespace System
 {
-	using System;
 	using System.ComponentModel;
 
 	[EditorBrowsable(EditorBrowsableState.Never)]
