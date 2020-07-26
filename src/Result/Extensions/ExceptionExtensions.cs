@@ -1,5 +1,6 @@
-namespace System
+namespace Result2
 {
+    using System;
     using System.ComponentModel;
 
     [EditorBrowsable(EditorBrowsableState.Never)]

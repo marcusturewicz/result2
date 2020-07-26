@@ -1,10 +1,10 @@
-namespace Result.Tests
+﻿namespace Result2.Tests
 {
     using System;
-    using Jane;
+    using Result2;
     using Xunit;
 
-    public class ResultTests
+    public class Result2Tests
     {
         [Fact]
         public void Ok_should_be_true_when_using_success_helper()

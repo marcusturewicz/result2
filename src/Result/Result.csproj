@@ -2,6 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+     <!-- NuGet package metadata -->
+    <PackageId>Result2</PackageId>
+    <Description>Helper library for communicating basic success/failure/reason info along with a value</Description>
+    <Authors>Marcus Turewicz, Jane</Authors>
+    <PackageTags>result results</PackageTags>
+    <!-- <PackageIcon>logo.png</PackageIcon> -->
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <!-- SourceLink metadata -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.1.91" PrivateAssets="All" />
+  </ItemGroup>
+
+  <!-- <ItemGroup>
+    <None Include="..\..\logo.png" Pack="true" PackagePath=""/>
+  </ItemGroup> -->
 
 </Project>

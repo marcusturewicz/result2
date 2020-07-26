@@ -1,10 +1,9 @@
-namespace Jane
+namespace Result2
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Linq;
-    using Jane;
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     public static class ResultExtensions

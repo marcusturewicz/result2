@@ -1,4 +1,4 @@
-namespace Jane
+namespace Result2
 {
     using System;
     using System.Collections.Generic;

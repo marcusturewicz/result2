@@ -1,7 +1,7 @@
-namespace Result.Tests
+namespace Result2.Tests
 {
     using System;
-    using Jane;
+    using Result2;
     using Xunit;
 
     public class ExceptionExtensionsTests

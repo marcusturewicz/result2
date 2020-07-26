@@ -1,10 +1,10 @@
-namespace System.Threading.Tasks
+namespace Result2
 {
     using System.ComponentModel;
-    using Jane;
+    using System.Threading.Tasks;
 
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public static class ResultExtensions
+    public static class TaskExtensions
     {
         public static Task<IResult> AsTask(this IResult result)
         {
