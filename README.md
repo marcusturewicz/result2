@@ -1,36 +1,18 @@
 <p align="center"><a href="https://github.com/marcusturewicz/result2"><img src="logo.png" alt="result2 logo" height="100"/></a></p>
 <p align="center">The .NET library for communicating results.</p>
 
-## What's a Result?
-Result is a contract, usually in the form of `IResult`.
+![build status](https://github.com/marcusturewicz/result2/workflows/CI/CD/badge.svg)</p>
+<!-- [![Nuget](https://img.shields.io/nuget/v/jsonv)](https://www.nuget.org/packages/jsonv)
+# [![Nuget](https://img.shields.io/nuget/dt/jsonv)](https://www.nuget.org/packages/jsonv) -->
 
-An `IResult` has two properties:
-* `Ok`: Was the call a success?
-* `Reason`: Usually ignored when `Ok`, contains the reason for the failure when not `Ok`
+# Contributing
 
-There's also an `IResult<T>`, which gets an extra property.
-* `Value`: Values should only be trusted when the result is `Ok` (think `TryParse`)!
+Check out the [contributing page](CONTRIBUTING.md) to see the best ways to contribute to result2.
 
+# Code of conduct
 
-## Returning Results
-`IResult`s are constructed using the following helper methods:
-* `Result.Success()`: Returns an `IResult` where `Ok` is `true`
-* `Result.Success(T value)`: Same as above, but returns `IResult<T>` with `Value` set
-* `Result.Failure(string reason, [string.Format params])`: Don't be lazy and pass `null`.  No one likes empty errors!
-* `Result.Failure(Exception ex)`: Uses the innermost `InnerException`'s `Message` (useful in catch blocks of course!)
+See the [CODE_OF_CONDUCT.md](Code of Conduct).
 
-## Why not return a bool and use 'out' for the other values?
-`out` isn't always an option.  Asynchronous code doesn't play well with `out` parameters.  You can't even use an `await` on a method with an `out` parameter!
+# License
 
-So how do you associate success or failure with `Task`s?  A `Task<X>` can't return a `Task<Y>` when it fails.  The only way you communicate failure is to throw an exception, which [Microsoft says you shouldn't do](http://msdn.microsoft.com/en-us/library/dd264997.aspx) (tl;dr exceptions are _slow_!), and check the task's `TaskStatus` (or `IsFaulted` or `IsCanceled`, depends on what type of exception stopped the task).
-
-So what do you use when `out` isn't allowed and exceptions are slow?  This is the hole `Result` fills.  As a result, methods returning `IResult` should **never** throw an exception.  You can prefix any `IResult` method names with `Try` to emphasize this.
-
-
-## NuGet?
-Of course!
-```
-PM> Install-Package Result
-```
-
-That's all there is to it.  Happy (now faster, more success/failure aware) async coding!
+This project is licensed under the [MIT License](LICENSE).
