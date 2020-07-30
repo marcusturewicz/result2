@@ -11,7 +11,7 @@ Check out the [contributing page](CONTRIBUTING.md) to see the best ways to contr
 
 # Code of conduct
 
-See the [CODE_OF_CONDUCT.md](Code of Conduct).
+See the [Code of Conduct](CODE_OF_CONDUCT.md) for the best ways to interact with this project.
 
 # License
 
