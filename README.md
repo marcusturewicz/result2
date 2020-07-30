@@ -1,3 +1,7 @@
+<p align="center"><a href="https://github.com/marcusturewicz/result2"><img src="logo.png" alt="result2 logo" height="60"/></a></p>
+<h1 align="center">result2</h1>
+<p align="center">The .NET library for communicating results.</p>
+
 ## What's a Result?
 Result is a contract, usually in the form of `IResult`.
 
