@@ -32,5 +32,5 @@ jobs:
     - run: dotnet pack src/Result -c Release --no-build
     - run: dotnet nuget push src/Result/bin/Release/*.nupkg
       if: github.event_name == 'push' && startswith(github.ref, 'refs/heads')
-    # - run: dotnet nuget push src/Result/bin/Release/*.nupkg -k ${{secrets.NUGET_ORG_API_KEY}} -s https://api.nuget.org/v3/index.json
-    #   if: github.event_name == 'push' && startswith(github.ref, 'refs/tags')
+    - run: dotnet nuget push src/Result/bin/Release/*.nupkg -k ${{secrets.NUGET_ORG_API_KEY}} -s https://api.nuget.org/v3/index.json
+      if: github.event_name == 'push' && startswith(github.ref, 'refs/tags')
