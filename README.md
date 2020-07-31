@@ -1,13 +1,12 @@
 <p align="center"><a href="https://github.com/marcusturewicz/result2"><img src="logo.png" alt="result2 logo" height="100"/></a></p>
 <p align="center">The .NET library for communicating results.</p>
 
+![build status](https://github.com/marcusturewicz/result2/workflows/CI/CD/badge.svg)
+[![Nuget](https://img.shields.io/nuget/v/jsonv)](https://www.nuget.org/packages/result2)
+[![Nuget](https://img.shields.io/nuget/dt/jsonv)](https://www.nuget.org/packages/result2)
+
 ## Getting started
 TODO
-
-## Build status
-![build status](https://github.com/marcusturewicz/result2/workflows/CI/CD/badge.svg)
-<!-- [![Nuget](https://img.shields.io/nuget/v/jsonv)](https://www.nuget.org/packages/jsonv)
-# [![Nuget](https://img.shields.io/nuget/dt/jsonv)](https://www.nuget.org/packages/jsonv) -->
 
 ## Contributing
 
