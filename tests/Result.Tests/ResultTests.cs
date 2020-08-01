@@ -19,7 +19,7 @@
             var obj = new { };
             var result = Result.Success(obj);
             Assert.True(result.Ok);
-            Assert.True(Object.ReferenceEquals(obj, result.Value));
+            Assert.True(ReferenceEquals(obj, result.Value));
         }
 
         [Fact]
@@ -36,6 +36,7 @@
             var result = Result.Failure(new Exception("error"));
             Assert.False(result.Ok);
             Assert.Equal("error", result.Reason);
+            Assert.NotNull(result.Exception);
         }
 
         [Fact]
@@ -44,6 +45,7 @@
             var result = Result.Failure(new Exception("error", new Exception("inner 1")));
             Assert.False(result.Ok);
             Assert.Equal("inner 1", result.Reason);
+            Assert.NotNull(result.Exception);
         }
 
         [Fact]
@@ -59,6 +61,7 @@
             var result = Result.From(() => { throw new Exception("err"); });
             Assert.False(result.Ok);
             Assert.Equal("err", result.Reason);
+            Assert.NotNull(result.Exception);
         }
 
         [Fact]
@@ -67,7 +70,7 @@
             var val = new { };
             var result = Result.From(() => val);
             Assert.True(result.Ok);
-            Assert.True(Object.ReferenceEquals(val, result.Value));
+            Assert.True(ReferenceEquals(val, result.Value));
         }
 
         [Fact]
@@ -76,6 +79,7 @@
             var result = Result.From<object>(() => { throw new Exception("err"); });
             Assert.False(result.Ok);
             Assert.Equal("err", result.Reason);
+            Assert.NotNull(result.Exception);
         }
     }
 }

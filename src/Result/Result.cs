@@ -12,6 +12,7 @@ namespace Result2
     {
         bool Ok { get; }
         string Reason { get; }
+        Exception Exception { get; }
     }
 
     /// <summary>
@@ -29,15 +30,17 @@ namespace Result2
     {
         public bool Ok { get; protected set; }
         public string Reason { get; protected set; }
+        public Exception Exception { get; protected set; }
 
         /// <summary>
         /// Use the static helper methods to create a <see cref="Result"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Result(bool ok, string reason)
+        public Result(bool ok, string reason, Exception exception = default)
         {
             Ok = ok;
             Reason = reason;
+            Exception = exception;
         }
 
         public static IResult Success()
@@ -72,12 +75,12 @@ namespace Result2
 
         public static IResult Failure(Exception ex)
         {
-            return new Result(false, ex.InnerMessage());
+            return new Result(false, ex.InnerMessage(), ex);
         }
 
         public static IResult<T> Failure<T>(Exception ex)
         {
-            return new Result<T>(false, ex.InnerMessage(), default);
+            return new Result<T>(false, ex.InnerMessage(), default, ex);
         }
 
         public static IEnumerable<IResult> Group(params IResult[] results)
@@ -95,11 +98,11 @@ namespace Result2
             try
             {
                 operation();
-                return Result.Success();
+                return Success();
             }
             catch (Exception ex)
             {
-                return Result.Failure(ex);
+                return Failure(ex);
             }
         }
 
@@ -107,11 +110,11 @@ namespace Result2
         {
             try
             {
-                return Result.Success(operation());
+                return Success(operation());
             }
             catch (Exception ex)
             {
-                return Result.Failure<T>(ex);
+                return Failure<T>(ex);
             }
         }
     }
@@ -127,8 +130,8 @@ namespace Result2
         /// Use the static helper methods to create a <see cref="Result{T}"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Result(bool ok, string reason, T value)
-            : base(ok, reason)
+        public Result(bool ok, string reason, T value, Exception exception = default)
+            : base(ok, reason, exception)
         {
             Value = value;
         }
